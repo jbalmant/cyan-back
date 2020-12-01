@@ -1,17 +1,17 @@
 module.exports = {
-    development: {
-        dialect: 'postgres',
-        host: 'localhost',
-        username: 'admin',
-        password: 'secret',
-        database: 'cyan',
-        define: {
-            timestamps: true,
-            underscored: true
-        }
-    },
+    // development: {
+    //     dialect: 'postgres',
+    //     host: 'localhost',
+    //     username: 'admin',
+    //     password: 'secret',
+    //     database: 'cyan',
+    //     define: {
+    //         timestamps: true,
+    //         underscored: true
+    //     }
+    // },
     production: {
-        use_env_variable: process.env.DATABASE_URL,
+        use_env_variable: "DATABASE_URL",
         dialect: 'postgres',
         define: {
             timestamps: true,
