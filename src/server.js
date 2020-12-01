@@ -12,4 +12,6 @@ app.use(routes);
 
 global.__basedir = __dirname;
 
+console.log("Database_URL", process.env.DATABASE_URL);
+
 app.listen(process.env.PORT || 5000);
