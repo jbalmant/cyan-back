@@ -9,7 +9,11 @@ console.log("ENV", process.env);
 
 const connection = new Sequelize(process.env.DATABASE_URL, {
     dialect:  'postgres',
-    protocol: 'postgres'
+    protocol: 'postgres',
+    define: {
+        timestamps: true,
+        underscored: true
+    }
 });
 
 File.init(connection);
