@@ -6,7 +6,8 @@
   "author": "<jbalmant@live.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
