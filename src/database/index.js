@@ -6,6 +6,7 @@ const Location = require('../models/Location');
 
 const connection = new Sequelize(dbConfig.production);
 
+console.log(connection)
 
 File.init(connection);
 Location.init(connection);
