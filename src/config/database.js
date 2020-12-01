@@ -1,5 +1,5 @@
 module.exports = {
-    "development": {
+    development: {
         dialect: 'postgres',
         host: 'localhost',
         username: 'admin',
@@ -10,7 +10,7 @@ module.exports = {
             underscored: true
         }
     },
-    "production": {
+    production: {
         dialect: 'postgres',
         define: {
             timestamps: true,
