@@ -12,6 +12,4 @@ app.use(routes);
 
 global.__basedir = __dirname;
 
-console.log("ENV", process.env);
-
 app.listen(process.env.PORT || 5000);
