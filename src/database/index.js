@@ -4,6 +4,9 @@ const dbConfig = require('../config/database');
 const File = require('../models/File');
 const Location = require('../models/Location');
 
+console.log("ENV", process.env);
+
+
 const connection = new Sequelize(dbConfig);
 
 File.init(connection);
