@@ -7,7 +7,7 @@ const Location = require('../models/Location');
 let connection = null
 
 if (process.env.DATABASE_URL) {
-    sequelize = new Sequelize(process.env.DATABASE_URL, {
+    connection = new Sequelize(process.env.DATABASE_URL, {
         dialect:  'postgres',
         protocol: 'postgres',
         port:     match[4],
@@ -15,7 +15,7 @@ if (process.env.DATABASE_URL) {
         logging:  true //false
       })
 } else {
-    new Sequelize(dbConfig);
+    connecttion = new Sequelize(dbConfig);
 }
 
 File.init(connection);
