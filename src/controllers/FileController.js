@@ -43,9 +43,10 @@ processFile = (file) => {
     console.log(`Downloading ${file.path}`);
     File.update( {status: FileStatus.DOWNLOADING}, { where: {id: file.id}});
 
-    download(file.path, 'somename').then(function() {
+    // TODO (jbalmant) - Create temp filename
+    download(file.path, filename).then(function() {
         File.update( {status: FileStatus.DOWNLOADED}, { where: {id: file.id}});
-        importCSV(file, 'somename')
+        importCSV(file, filename)
         console.log('Download Done');
     }).catch(function(err) {
         console.log(`An error occured ${err}`)
