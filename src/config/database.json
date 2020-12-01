@@ -1,18 +1,7 @@
 {
-    "development": {
-        "database": "products_api_development",
-        "dialect": "postgres"
-    },
-    "test": {
-        "database": "products_api_test",
-        "dialect": "postgres"
-    },
     "production": {
         "use_env_variable": "DATABASE_URL",
         "dialect": "postgres",
-        "dialectOptions": {
-            "ssl": true
-        },
         "define": {
             "timestamps": true,
             "underscored": true
