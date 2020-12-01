@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+<<<<<<< HEAD
+    config: path.resolve(__dirname, 'src', 'config', 'database.json'),
+=======
     config: path.resolve(__dirname, 'src', 'config', 'database.js'),
+>>>>>>> master
     'migrations-path': path.resolve(__dirname, 'src', 'database', 'migrations')
 };
