@@ -1,5 +1,5 @@
-const File = require('../models/File');
-const Location = require('../models/Location');
+// const File = require('../../assets/File');
+// const Location = require('../../assets/Location');
 
 module.exports = {
     async list(req, res) {

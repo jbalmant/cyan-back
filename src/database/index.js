@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database.json');
 
-const File = require('../models/File');
-const Location = require('../models/Location');
+const File = require('../app/models/File');
+const Location = require('../app/models/Location');
 
 const connection = new Sequelize(process.env.DATABASE_URL, {
     dialect:  'postgres',

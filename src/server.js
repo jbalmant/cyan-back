@@ -1,15 +1,20 @@
-const express = require('express');
-const routes = require('./routes');
-const cors = require('cors');
+// const express = require('express');
+// const routes = require('./routes');
+// const cors = require('cors');
 
-require('./database');
+// require('./database');
 
-const app = express();
+// const app = express();
 
-app.use(cors())
-app.use(express.json());
-app.use(routes);
+// app.use(cors())
+// app.use(express.json());
+// app.use(routes);
 
-global.__basedir = __dirname;
+// global.__basedir = __dirname;
+
+// app.listen(process.env.PORT || 5000);
+
+
+const app = require('./app');
 
 app.listen(process.env.PORT || 5000);
