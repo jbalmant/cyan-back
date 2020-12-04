@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
         url_path: DataTypes.STRING
     });
 
+    File.associate = function (models) {
+        File.hasMany(models.Location,
+            {foreignKey: 'file_id', as: 'locations'}
+        )
+    }
+
     return File;
 };
 //     static associate(models) {

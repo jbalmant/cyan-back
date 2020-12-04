@@ -4,6 +4,6 @@ module.exports = Object.freeze({
     "DOWNLOADED": 3, 
     "IMPORTING": 4, 
     "IMPORTED": 5, 
-    "DOWNLOADING_ERROR": -1, 
-    "IMPORTING_ERROR": -2 
+    "DOWNLOAD_ERROR": -1,
+    "IMPORT_ERROR": -2
 });

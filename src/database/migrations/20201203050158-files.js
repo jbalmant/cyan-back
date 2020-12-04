@@ -40,6 +40,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('files');
+    return queryInterface.dropTable('files');
   }
 };

@@ -2,21 +2,17 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('locations', {
+    return queryInterface.createTable('locations', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
       },
-      lat: {
-        type: Sequelize.FLOAT,
+      point: {
+        type: Sequelize.GEOGRAPHY('POINT', 4326),
         allowNull: false,
       },
-      lng: {
-        type: Sequelize.FLOAT,
-        allowNull: false,
-      }, 
       file_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -36,6 +32,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('locations');
+    return queryInterface.dropTable('locations');
   }
 };
