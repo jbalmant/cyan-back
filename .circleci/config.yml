@@ -7,7 +7,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn test
+          command: NODE_ENV=test yarn test
           name: Run YARN tests
 orbs:
   node: circleci/node@3.0.0
