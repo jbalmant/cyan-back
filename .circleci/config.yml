@@ -1,5 +1,7 @@
 jobs:
   test:
+    environment:
+      NODE_ENV: test
     executor:
       name: node/default
     steps:
