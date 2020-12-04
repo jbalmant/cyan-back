@@ -1,13 +1,13 @@
 const { File } = require('../models');
 const Location = require('../../assets/Location');
-const download = require('../../utils/download');
+const download = require('../utils/download');
 
 const url = require("url");
 const Fs = require('fs');
 const csv = require('fast-csv');
 const Path = require('path');
 const FileStatus = require('../enums/FileStatus');
-
+const processFile = require('../utils/processFile')
 
 
 
@@ -85,6 +85,7 @@ const FileStatus = require('../enums/FileStatus');
 
 
 class FileController {
+
     async store(req, res) {
         const { user_id } = req
         const { url_path } = req.body;
@@ -92,6 +93,8 @@ class FileController {
         const name = Path.posix.basename(url.parse(url_path).pathname)
 
         const file = await File.create({ url_path, status, name, user_id });
+
+        processFile(file)
 
         return res.json(file)
     }

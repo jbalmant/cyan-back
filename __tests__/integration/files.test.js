@@ -4,6 +4,10 @@ const app = require('../../src/app');
 const truncate = require('../utils/truncate');
 const factory = require('../factories');
 const FileStatus = require('../../src/app/enums/FileStatus');
+const File = require('../../src/app/models/File');
+
+jest.mock('../../src/app/utils/processFile');
+const processFile = require('../../src/app/utils/processFile');
 
 describe('Files', () => {
     beforeEach(async () => {
@@ -17,7 +21,6 @@ describe('Files', () => {
         const file1 = await factory.create('File', { user_id: user.id })
         const file2 = await factory.create('File', { user_id: user.id })
         await factory.create('File', { user_id: another_user.id })
-
 
         const response = await request(app).get("/files")
             .set('Authorization', `Bearer ${user.generateToken()}`)
@@ -55,14 +58,16 @@ describe('Files', () => {
             })
         expect(response.status).toBe(200);
 
-        expect(response.body).toEqual(
-            expect.objectContaining({
-                url_path: 'https://balmant.s3-sa-east-1.amazonaws.com/small.csv',
-                name: 'small.csv',
-                user_id: user.id,
-                status: FileStatus.QUEUED
-            })
-        )
+        let expected = expect.objectContaining({
+            url_path: 'https://balmant.s3-sa-east-1.amazonaws.com/small.csv',
+            name: 'small.csv',
+            user_id: user.id,
+            status: FileStatus.QUEUED
+        })
+
+        expect(response.body).toEqual(expected)
+
+        expect(processFile).toHaveBeenCalledWith(expected)
     });
 });
 
