@@ -32,6 +32,30 @@ describe('ImportFile', () => {
         Fs.appendFileSync(file_path, '-16.0738,-53.9820\r\n')
         Fs.appendFileSync(file_path, '-6.5847,-51.4006\r\n')
         Fs.appendFileSync(file_path, '-16.0694,-53.9873\r\n')
+        Fs.appendFileSync(file_path, '-6.5837,-51.3937')
+
+        expect(Fs.existsSync(file_path)).toBe(true)
+
+        await importFile(file, file_path)
+
+        locations = await Location.findAll()
+        expect(locations.length).toBe(4)
+
+        expect(expected_file.status).toBe(FileStatus.IMPORTED)
+    });
+
+    it('must import file when csv has no header', async () => {
+
+        const user = await factory.create('User')
+        const file = await factory.create('File', {
+            user_id: user.id
+        })
+
+        const file_path = Path.join(process.env.DOWNLOAD_FOLDER, file.name);
+
+        Fs.appendFileSync(file_path, '-16.0738,-53.9820\r\n')
+        Fs.appendFileSync(file_path, '-6.5847,-51.4006\r\n')
+        Fs.appendFileSync(file_path, '-16.0694,-53.9873\r\n')
         Fs.appendFileSync(file_path, '-6.5837,-51.3937\r\n')
 
         expect(Fs.existsSync(file_path)).toBe(true)
@@ -42,6 +66,7 @@ describe('ImportFile', () => {
 
         expect(expected_file.status).toBe(FileStatus.IMPORTED)
     });
+
 });
 
 

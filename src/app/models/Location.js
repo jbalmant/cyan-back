@@ -6,7 +6,3 @@ module.exports = (sequelize, DataTypes) => {
 
     return Location;
 };
-//     static associate(models) {
-//         this.hasMany(models.Location, {foreignKey: 'file_id', as: 'locations'})
-//     }
-// };
